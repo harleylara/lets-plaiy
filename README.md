@@ -2,7 +2,7 @@
 
 **⚠ REPOSITORY UNDER DEVELOPMENT ⚠**
 
-Let's Pl**ai**y, is a project being developed at **Rhein-Waal University of Applied Sciences** in the interdisciplinary project (IP 17, WS 2021). The aim of the project is to develop, design and implement teaching materials on _artificial intelligence_ (AI) for schools.
+Let's Pl**ai**y, is a project being developed at **[Rhein-Waal University of Applied Sciences](https://www.hochschule-rhein-waal.de/en)** in the interdisciplinary project (IP 17, WS 2021). The aim of the project is to develop, design and implement teaching materials on _artificial intelligence_ (AI) for schools.
 
 It is intended to use deep learning models powered by [NVIDIA Jetson Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit) computers and [Snap!](https://snap.berkeley.edu/), a programming environment to facilitate interaction with the deep learning models.
 
