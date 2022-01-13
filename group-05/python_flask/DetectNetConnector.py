@@ -30,7 +30,7 @@ class DetectNetConnector:
         detections = net.Detect(image)
         output.Render(image)
         for detection in detections:
-                myDetections.append([net.GetClassDesc(detection.ClassID),detection.Confidence])
+                myDetections.append([net.GetClassDesc(detection.ClassID),detection.Confidence,round(detection.Top),round(detection.Bottom),round(detection.Left),round(detection.Right)])
         
        
         return myDetections
