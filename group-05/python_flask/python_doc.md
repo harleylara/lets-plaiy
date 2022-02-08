@@ -14,4 +14,6 @@ RunInference(self, img)  : img parameter is the image to be analysed
                           jetson.utils.videoOutput stores the Output. 
                           jetson.utils.loadImage(img) converts the img to a CUDA-image
                           jetson.inference.detectNet('ssd-mobile-v2') loads the Model for the Detection Network
-                          
+                          Creating List of detected Objects from net.Detect(image)
+                          Loop through all Detections in the List and filtering the Information to a new Custom List with only the necessary Information (ClassDescription, Confidence, Top, Bottom, Left, Right)
+                          returning the Custom Detection List
