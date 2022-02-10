@@ -18,8 +18,8 @@ post() | Receive data in bytes
 Function | Description
 --- | ---
 __init__() | Initializing the constructor of the DetectNetConnector Class 
-RunInference(self, img) | "img" parameter is the image to be analysed
--> | "myDetections" is a two-dimensional array to store the relevant information about the detected objects 
+RunInference(self, img) | `img` parameter is the image to be analysed
+-> | `myDetections` is a two-dimensional array to store the relevant information about the detected objects 
 -> | "jetson.utils.videoOutput" stores the output. 
 -> | "jetson.utils.loadImage(img)" converts the img to a CUDA-image (jetson-Format).
 -> | "inference.detectNet('ssd-mobile-v2')" loads the model for the detection-network and creates a list of detected objects from "net.Detect(image)"
