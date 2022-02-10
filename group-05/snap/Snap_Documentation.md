@@ -1,3 +1,5 @@
+![Full](/lets-plaiy/group-05/snap/screenshots/full.png)
+
 (VideoCapturePicture)
 Set Video Capture asks for Permission from the User to access a Video Device.
 Set Video Transparancy is set to 0, to correctly display the Video on the Stage.
