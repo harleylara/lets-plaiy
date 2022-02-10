@@ -1,54 +1,62 @@
-![Full](/lets-plaiy/group-05/snap/screenshots/full.png)
+# Verison.2_01.xml
+![VideoCapture](/group-05/snap/Screenshots/VideoCapture.png)  \
+***Set Video Capture*** asks for permission from the user to access a video device. \
+***Set Video Transparancy*** is set to "0" to correctly display the video on the stage.
+___
+![Full](/group-05/snap/Screenshots/Full.png) \
+We will break down this codeblock into sections below. 
+___
+![SpaceAndForLoop](/group-05/snap/Screenshots/SpaceAndForLoop.png) \
+Press the "Space"-key to execute a for-loop to delete all old bounding boxes from previous detections. \
+Switch the costume to the stage to see the camera.
+___
+![EnterPressed](/group-05/snap/Screenshots/EnterPressed.png) \
+Press the "Enter"-key to continue. \
+Take a snapshot of the stage and set it to the variable "picture" \
+Switch to costume changes the costume to display the "picture"-variable on the stage \
+Set "response" to the JSON-response of the server after processing the picture. \
+Set "objects" to the filtered "response"-variable that contains a list of detected objects \
+Create bounding boxes creates new sprites and inside those, it creates costumes as bounding boxes
 
-(VideoCapturePicture)
-Set Video Capture asks for Permission from the User to access a Video Device.
-Set Video Transparancy is set to 0, to correctly display the Video on the Stage.
+# Custom Blocks
+## Delete Bounding Boxes
+![DeleteBoundingBoxes](/group-05/snap/Screenshots/DeleteBoundingBoxes.png) \
+Iterate every sprite and delete each sprite that contains "Object" in their name
 
-(SpaceAndForLoop)
-When Pressing the "Space"-Key we execute a for-Loop to delete all old Bounding Boxes from previous Detections. After that we switch the Costume to the Stage to see our Camera.
-
-(KeyEnter)
-We are waiting for the Enter Key to be pressed.
-After that we take a snapshot of the stage and set it to the variable "picture".
-Switch to Costume changes the Costume display the "picture"-variable on the Stage.
-Set "response" to the JSON-Response of the Server after processing the picture.
-Set "objects" the filtered "response"-Variable that contains a List of detected Objects.
-Create Bounding Boxes creates new Sprites and inside those, it creates Costumes as Bounding Boxes.
-
-#Custom Blocks
-
-delete Bounding Boxes:
-  iterate every Sprite and delete every Sprite which contains "Object" in their name.
-
-response:
-  Converting image to Base64
-  Sending a POST request to the Flask Server with the Base64 image in a JSON-Format.
-  Report Block waits for response.
-
-objects from Jetson:
-  Setting Objects to the {'detections' : **detections** }
+## Response
+![Response](/group-05/snap/Screenshots/Response.png) \
+Converting image to base64 \
+Send a POST-request to the Flask-server with the base64 image in a JSON-format \
+Report block waits for response
   
-create Bounding Boxes
-  Setting x and y to 0
-  Looping though all Objects in "objects" we create a new Sprite with the name "Object (i)".
-  Draw Box draws the Bouding Box for every Sprite created.
- 
-new Sprite
-  Adds a new Sprite, and renames it afterwards hence naming isnt available in the creation of the sprite.
-  Selected Sprite will switch back to the original sprite (sprite[0]) to keep the Scripts Window opened.
+## Objects From Jetson
+![ObjectsFromJetson](/group-05/snap/Screenshots/ObjectsFromJetson.png) \
+Setting objects to the detections part of {'detections' : ***detections***}
+
+## Create Bounding Boxes
+![CreateBoundingBoxes](/group-05/snap/Screenshots/CreateBoundingBoxes.png) \
+Setting "x"- and "y"-coordinates to "0" \
+Looping though all objects in "objects" to create a new sprite with the name "Object (i)".
+Draw Box draws the bounding box for every sprite created.
   
-Draw Box
-  Setting Locations for the Bounding Box from the Object. 
-  Converting the Locations from Jetson Format (Origin Top Left Corner) to Snap! Format (Origin Middle)
+## New Sprite
+![NewSprite](/group-05/snap/Screenshots/NewSprite.png) \
+Adds a new sprite and renames it afterwards, because naming isnt possible in the creation of the sprite \
+Selected sprite will switch back to the original sprite (sprite[0]) to keep the scripts window opened \
   
-  Tell the Sprite to start drawing and set the pen Location to the top Left Corner of the Bounding Box.
-   1 = X-Coordinate from Top-Left-Corner
-   2 = Y-Coordinate from Top-Left-Corner
-   3 = width of the Bounding Box
-   4 = Height of the Bounding Box
-  The For-Loop draws the box, then we move the pen inside the box by 3 pixel and fill the Box with Transparency 70%.
-  After fill we move the pen to the location where we want to write the Name and Confidence.
-  Then we write the Name and Round the Number of the Confidence.
-  add pentrails to my costume saves the Bounding Box as the Costume
-  Switch to costume displays the Bounding Box on top of the picture.
+## Draw Box
+![DrawBox](/group-05/snap/Screenshots/DrawBox.png) \
+Setting locations for the bounding box from the object \
+Converting the locations from Jetson-format (origin: top-left-corner) to Snap!-format (origin: center) \
+  
+Tell the sprite to start drawing and set the pen location to the top-Left-corner of the bounding box \
+1 = "X"-coordinate from top-left-corner \
+2 = "Y"-coordinate from top-left-corner \
+3 = width of the bounding box \
+4 = height of the bounding box \
+The for-loop draws the box, then the pen moves inside the box by 3 pixels and fills the box with a transparency of 70% \
+The pen moves to the another location to write the name and confidence \
+Confidence is rounded before writing \
+Add pentrails to my costume saves the bounding box as the costume \
+Switch to costume displays the bounding box on top of the picture
   
