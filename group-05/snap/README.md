@@ -18,6 +18,9 @@ Set "response" to the JSON-response of the server after processing the picture. 
 Set "objects" to the filtered "response"-variable that contains a list of detected objects \
 Create bounding boxes creates new sprites and inside those, it creates costumes as bounding boxes
 
+https://user-images.githubusercontent.com/39634776/155811691-c4b5f971-dbdb-47cf-9349-b31a84b3dbc3.mp4
+
+
 # Custom Blocks
 ## Delete Bounding Boxes
 ![DeleteBoundingBoxes](/group-05/snap/Screenshots/DeleteBoundingBoxes.png) \
