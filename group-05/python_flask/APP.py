@@ -43,7 +43,7 @@ class JetsonInterface(Resource):
         """
         return 'running'
 
-    @app.route(ROUTE + '/imagenet', methods=['POST']) 
+    @app.route(ROUTE + '/detectnet', methods=['POST']) 
     def post():
 
         req = request.get_data() # bytes
