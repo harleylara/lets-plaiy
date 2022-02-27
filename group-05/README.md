@@ -1,14 +1,26 @@
-# SNAP! and Flask interaction
+# General Info
+This project aims to use Sanp! as interface for Object Detection on Jetson Nano.
 
-The python_flask folder contains py and additional files for running Flask server. The main files are:
+Flask server running on Jetson Nano for communication.
 
-app.py
-ImageNetConnector.py
+# Setup
+## Jetson Nano
+- Use Command Line to clone the directory on Jetson Nano
+  ```bash
+  git clone https://github.com/harleylara/lets-plaiy
+  ```
+- Navigate to python folder
+   ```bash
+  cd ~/lets-plaiy/group-05/python_flask
+  ```
+- Use command below to run flask server on Jetson Nano
+    ```bash
+    sudo python3 APP.py
+  ```
+- Note your IP address. IP address is needed for `Response` block in Snap!
+## Snap!
+- Open file __Verison.2_01.xml__ with Snap!
+- Enable _JavaScript extentions_ from settings
+- Edit `Response` block to write your IP address
 
-Other files are either reserve copies of app.py or generated files from Flask. The templates folder was used before for rendering html pages, but currently has no use.
-
-The snap folder contains 2 files for opening inside Snap! environment:
-
-final_31_10_second_game.xml - uses camera to take images
-
-final_apple.xml - uses hand drawn images from Stages for classification.
+![Response](/group-05/snap/Screenshots/Response.png)
