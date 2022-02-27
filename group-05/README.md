@@ -40,6 +40,11 @@ cd Snap
 ```
 # Setup
 ## Jetson Nano
+- Note your IP address. IP address is needed for `Response` block in Snap!. 
+Command below will give IP adress of your device
+  ```bash
+  ifconfig -a
+  ```
 - Use Command Line to clone the directory on Jetson Nano
   ```bash
   git clone https://github.com/harleylara/lets-plaiy
@@ -51,11 +56,6 @@ cd Snap
 - Use command below to run flask server on Jetson Nano
     ```bash
     sudo python3 APP.py
-  ```
-- Note your IP address. IP address is needed for `Response` block in Snap!. 
-Command below will give IP adress of your device
-  ```bash
-  ifconfig -a
   ```
 ## Snap!
 - Open file __Verison.2_01.xml__ with Snap!
