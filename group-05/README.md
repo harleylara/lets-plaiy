@@ -1,8 +1,43 @@
 # General Info
 This project aims to use Sanp! as interface for Object Detection on Jetson Nano.
 
-Flask server running on Jetson Nano for communication.
+Flask server running on Jetson Nano for communication under the address:
+`http://ip_address:4040/jetson-interface`
 
+# Requirements
+ ## Jetson Nano
+  - Built in [jetson inference](https://github.com/dusty-nv/jetson-inference) repository on Jetson Nano
+    ```bash
+    $ sudo apt-get update
+    $ sudo apt-get install git cmake libpython3-dev python3-numpy
+    $ git clone --recursive https://github.com/dusty-nv/jetson-inference
+    $ cd jetson-inference
+    $ mkdir build
+    $ cd build
+    $ cmake ../
+    $ make -j$(nproc)
+    $ sudo make install
+    $ sudo ldconfig
+    ```
+- Python3 Dependencies
+
+  The server is based on Flask and requires some dependencies to be installed:
+
+  - Flask
+  - Flask-Restful
+  - Flask-Cors
+  - Pillow
+
+  ```bash
+  $ pip3 install Flask flask-restful flask-cors Pillow requests
+  ```
+## Snap!
+   It is recommended to use offline version of Snap! for avoiding potential CORS problems
+   ```bash
+cd ~
+git clone https://github.com/jmoenig/Snap
+cd Snap
+```
 # Setup
 ## Jetson Nano
 - Use Command Line to clone the directory on Jetson Nano
@@ -17,7 +52,11 @@ Flask server running on Jetson Nano for communication.
     ```bash
     sudo python3 APP.py
   ```
-- Note your IP address. IP address is needed for `Response` block in Snap!
+- Note your IP address. IP address is needed for `Response` block in Snap!. 
+Command below will give IP adress of your device
+  ```bash
+  ifconfig -a
+  ```
 ## Snap!
 - Open file __Verison.2_01.xml__ with Snap!
 - Enable _JavaScript extentions_ from settings
