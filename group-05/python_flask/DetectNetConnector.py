@@ -1,34 +1,33 @@
 import jetson.inference
 import jetson.utils
 
+#load the recognition network
+net = jetson.inference.detectNet("ssd-mobilenet-v2")
+
 class DetectNetConnector:
     
 
     def __init__(self):
         print("init")
-       
 
     def RunInference(self,img):
         """
-            Run ImageNet Inference
+            Run detectNet 
 
-            :param img: image to be classified
+            :param img: image to be detected
 
-            :return class_desc: object detected
-            :return confidence: classification confidence
+            :return myDetections : list of detected objects
         """
-        myDetections =[]
-        output = jetson.utils.videoOutput('./image.png')
+
 	# load image
         image = jetson.utils.loadImage(img)
-	
-        # load the recognition network
-        net = jetson.inference.detectNet("ssd-mobilenet-v2")
 
 
         # classify the image
+        myDetections =[]
         detections = net.Detect(image)
-        output.Render(image)
+        
+
         for detection in detections:
                 myDetections.append([net.GetClassDesc(detection.ClassID),detection.Confidence,round(detection.Top),round(detection.Bottom),round(detection.Left),round(detection.Right)])
         
